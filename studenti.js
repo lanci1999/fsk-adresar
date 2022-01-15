@@ -38,3 +38,21 @@ function trazeni(){
 function pretraga(index){
     return getStudentsFromStorage().find(student => student.number==index);
 }
+
+function listaStudenata(){
+    var studenti=[];
+    var ispis="";
+    var spaseniStudenti=JSON.parse(sessionStorage.getItem("studenti"))
+    if(spaseniStudenti!=null){
+        studenti=spaseniStudenti;
+    }
+    for(let i=0; i<studenti.length; i++){
+        ispis+= `${studenti[i].number}
+        ${studenti[i].firstName} ${studenti[i].lastName}<br> `
+    }
+    document.getElementById("lista").innerHTML=ispis;
+}
+
+
+
+
